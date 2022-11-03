@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TWOM Regen Simulator</title>
+	<link rel="stylesheet" href="./style.css" />
+	<script type="text/javascript" src="./mob.js"></script>
+	<script type="text/javascript" src="./skill.js"></script>
+	<script type="text/javascript" src="./player.js"></script>
+	<script type="text/javascript" src="./calculator.js"></script>
+	<script type="text/javascript" src="./main.js"></script>
+</head>
+<body>
+	<div class="mask loading hidden">
+		<div class="loading-message">
+			Loading
+		</div>
+	</div>
+	<div class="mask stats-full hidden">
+	<div class="container">
+		<div class="navigation">
+			<h1>IMO TWOM Mage Simulator</h1>
+			<div class="history">History</div>
+			<div class="stats">
+			</div>
+		</div>
+		<form action="#" method="post" onsubmit="load(event,this);">
+			<div class="player-block">
+				<div class="player">
+					<h2>Player 1</h2>
+					<div class="form-block">
+						<input type="text" name="player1_wand" value="+8 Soul Eater" readonly>
+						<div class="input-decoration"></div>
+						<label for="player1_wand">Wand</label>
+					</div>
+					<div class="form-block">
+						<input type="number" name="player1_int" value="80" min="58" max="90">
+						<div class="input-decoration"></div>
+						<label for="player1_int">INT</label>
+					</div>
+					<div class="form-block">
+						<input type="number" name="player1_mana" value="1350" min="700" max="2000">
+						<div class="input-decoration"></div>
+						<label for="player1_mana">Mana</label>
+					</div>
+					<div class="form-block">
+						<input type="number" name="player1_manaRegen" value="34" min="0" max="200">
+						<div class="input-decoration"></div>
+						<label for="player1_manaRegen">Mana Regen</label>
+					</div>
+					<div class="form-block">
+						<input type="number" name="player1_critical" value="14" min="0" max="40">
+						<div class="input-decoration"></div>
+						<label for="player1_critical">Critical</label>
+					</div>
+					<div class="form-block">
+						<input type="number" name="player1_deadly" value="19.0" min="0.0" max="30.0" step="0.1">
+						<div class="input-decoration"></div>
+						<label for="player1_deadly">Deadly</label>
+					</div>
+					<div class="form-block">
+						<select name="player1_gloves">
+							<option value="INT Gloves">INT Gloves</option>
+							<option value="Power Gloves">Power Gloves</option>
+							<option value="Joma Hands" selected>Joma Hands</option>
+						</select>
+						<div class="input-decoration"></div>
+						<label for="player1_gloves">Gloves</label>
+					</div>
+					<div class="form-block">
+						<select name="player1_doll">
+							<option value="None" selected>None</option>
+							<option value="Kooii Doll">Kooii Doll</option>
+							<option value="Boar Doll">Boar Doll</option>
+						</select>
+						<div class="input-decoration"></div>
+						<label for="player1_doll">Doll</label>
+					</div>
+				</div>
+				<div class="player">
+					<h2>Player 2</h2>
+					<div class="form-block">
+						<input type="text" name="player2_wand" value="+8 Soul Eater" readonly>
+						<div class="input-decoration"></div>
+						<label for="player2_wand">Wand</label>
+					</div>
+					<div class="form-block">
+						<input type="number" name="player2_int" value="80" min="58" max="90">
+						<div class="input-decoration"></div>
+						<label for="player2_int">INT</label>
+					</div>
+					<div class="form-block">
+						<input type="number" name="player2_mana" value="1350" min="700" max="2000">
+						<div class="input-decoration"></div>
+						<label for="player2_mana">Mana</label>
+					</div>
+					<div class="form-block">
+						<input type="number" name="player2_manaRegen" value="34" min="0" max="200">
+						<div class="input-decoration"></div>
+						<label for="player2_manaRegen">Mana Regen</label>
+					</div>
+					<div class="form-block">
+						<input type="number" name="player2_critical" value="14" min="0" max="40">
+						<div class="input-decoration"></div>
+						<label for="player2_critical">Critical</label>
+					</div>
+					<div class="form-block">
+						<input type="number" name="player2_deadly" value="19.0" min="0.0" max="30.0" step="0.1">
+						<div class="input-decoration"></div>
+						<label for="player2_deadly">Deadly</label>
+					</div>
+					<div class="form-block">
+						<select name="player2_gloves">
+							<option value="INT Gloves">INT Gloves</option>
+							<option value="Power Gloves">Power Gloves</option>
+							<option value="Joma Hands" selected>Joma Hands</option>
+						</select>
+						<div class="input-decoration"></div>
+						<label for="player2_gloves">Gloves</label>
+					</div>
+					<div class="form-block">
+						<select name="player2_doll">
+							<option value="None" selected>None</option>
+							<option value="Kooii Doll">Kooii Doll</option>
+							<option value="Boar Doll">Boar Doll</option>
+						</select>
+						<div class="input-decoration"></div>
+						<label for="player2_doll">Doll</label>
+					</div>
+				</div>
+			</div>
+			<div class="submit-block">
+				<div class="form-block">
+						<select name="mob">
+							<option value="Chaser" selected>Chaser</option>
+							<option value="Sikenel">Sikenel</option>
+							<option value="BigMama">BigMama</option>
+						</select>
+						<div class="input-decoration"></div>
+						<label for="mob">Monster</label>
+				</div>
+				<div class="form-block">
+					<output name="trials_hours" for="minutes trials" value="1.00 hour(s)">1.00 hour(s)</output>
+					<input type="number" name="trials" value="1" min="1"
+					oninput='trials_hours.value=((trials.value*((minutes.value/60))).toFixed(2))+" hour(s)"'>
+					<div class="input-decoration"></div>
+					<label for="trials">Trials</label>
+				</div>
+				<div class="form-block">
+					<output name="hours" for="minutes" value="1.00 hour(s)">1.00 hour(s)</output>
+					<input type="number" name="minutes" value="60" min="5" step="5"
+					oninput='
+					(function () {
+						hours.value=((minutes.value/60).toFixed(2))+" hour(s)"; 
+						trials_hours.value=((trials.value*((minutes.value/60))).toFixed(2))+" hour(s)"
+					})()'>
+					<div class="input-decoration"></div>
+					<label for="minutes">Minutes</label>
+				</div>
+				<div class="form-block">
+					<input type="submit" name="submit" value="Run">
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
