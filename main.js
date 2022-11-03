@@ -24,6 +24,7 @@ function displayStats(id) {
 
 	var statsInfo = statsFull.querySelector(".stats-info");
 	statsInfo.innerHTML = "";
+	statsInfo.scrollTop = 0;
 
 	var p1Keys = Object.keys(targetStats.Player1.Results);
 	var p1Vals = Object.values(targetStats.Player1.Results);
